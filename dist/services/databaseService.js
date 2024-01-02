@@ -9,11 +9,13 @@ const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
 const { Pool } = pg_1.default;
 const connection = new Pool({
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    port: 5432,
-    host: "localhost",
-    database: "perntodo",
+    connectionString: process.env.DATABASE_URL,
+    ssl: { rejectUnauthorized: false },
+    // user: process.env.DB_USER,
+    // password: process.env.DB_PASSWORD,
+    // port: 5432,
+    // host: "localhost",
+    // database: "perntodo",
 });
 exports.dbConnection = connection;
 //# sourceMappingURL=databaseService.js.map
